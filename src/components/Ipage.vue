@@ -6,7 +6,7 @@
     .menu-item span{
         display: inline-block;
         overflow: hidden;
-        width: 69px;
+        width: 80px;
         text-overflow: ellipsis;
         white-space: nowrap;
         vertical-align: bottom;
@@ -33,25 +33,27 @@
     <div class="layout">
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
-               
+                
                 <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-                     
+                         
                     <MenuItem name="1-1">
                         <!-- <Icon type="ios-navigate"></Icon> -->
+                        
                         <span>長期投資</span>
                     </MenuItem>
                     <MenuItem name="1-2">
                         <!-- <Icon type="search"></Icon> -->
                         <span>短期投資</span>
                     </MenuItem>
+                    <MenuItem name="1-3">
+                        <!-- <Icon type="search"></Icon> -->
+                        <span>公司資訊</span>
+                    </MenuItem>
                 </Menu>
             </Sider>
             <Layout>
-                <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
-                  <div>
-                    <img src="https://c1.staticflickr.com/5/4013/4452629067_c6d5388622_b.jpg"  width="200" height="50px">
-                    </div>
-                </Header>
+                <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
+                </Header> -->
                 <Content :style="{padding: '0 16px 16px'}">
                     <CheckboxGroup v-model="social">
                           <h1> 產業類別</h1>
@@ -76,7 +78,9 @@
                       </CheckboxGroup>
                        <Button type="primary" icon="ios-search">Search</Button>
                     <Card>
-                        <div style="height: 600px">Content</div>
+                        <svg height="100vh" width="100vw">
+                         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                        </svg>
                     </Card>
                 </Content>
             </Layout>
