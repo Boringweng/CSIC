@@ -56,25 +56,29 @@
                 </Header> -->
                 <Content :style="{padding: '0 16px 16px'}">
                     <CheckboxGroup v-model="social">
-                          <h1> 產業類別</h1>
-                          <Checkbox label="twitter">
-                             
-                              <span>電子類股</span>
-                          </Checkbox>
-                          <Checkbox label="facebook">
-                             
-                              <span>水泥類股</span>
-                          </Checkbox>
-                          <Checkbox label="github">
-                              
+                        <h1> 產業類別</h1>
+                        <b>年度:</b>
+                        <Select v-model="model1" style="width:100px">
+                            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                        </Select>
+                        <Checkbox label="twitter">  
+                            <span>電子類股</span>
+                        </Checkbox>
+                        <Checkbox label="facebook">     
+                            <span>水泥類股</span>
+                        </Checkbox>
+                        <Checkbox label="github">      
                               <span>食品類股</span>
-                          </Checkbox>
-                      </CheckboxGroup>
-                      <CheckboxGroup v-model="fruit">
+                        </Checkbox>
+                    </CheckboxGroup>
+                    <CheckboxGroup v-model="fruit">
                           <h1> 搜尋條件</h1>
-                          <Checkbox label="股利發放率>85%"></Checkbox>
-                          <Checkbox label="本益比<15"></Checkbox>
-                          <Checkbox label="殖利率>4.5%"></Checkbox>
+                          <Checkbox label="股利發放大於"></Checkbox>
+                          <Input v-model="value14" placeholder="Enter something..." clearable style="width: 50px"></Input>
+                          <Checkbox label="本益比大於"></Checkbox>
+                          <Input v-model="value13" placeholder="Enter something..." clearable style="width: 50px"></Input>
+                          <Checkbox label="殖利率小於"></Checkbox>
+                          <Input v-model="value12" placeholder="Enter something..." clearable style="width: 50px"></Input>
                       </CheckboxGroup>
                        <Button type="primary" icon="ios-search">Search</Button>
                     <Card>
@@ -91,7 +95,21 @@
     export default {
         data () {
             return {
-                isCollapsed: false
+                isCollapsed: false,
+                cityList: [ 
+                    {
+                        value: '2018',
+                        label: '2018'
+                    },
+                    {
+                        value: '2017',
+                        label: '2017'
+                    },
+                    
+                ],
+                value14: '85%',
+                value13: '15',
+                value12: '4.5%',
             };
         },
         computed: {
