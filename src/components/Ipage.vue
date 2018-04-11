@@ -34,28 +34,31 @@
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                 
-                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-                         
-                    <MenuItem name="1-1">
-                        <!-- <Icon type="ios-navigate"></Icon> -->
-                        
-                        <span>長期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-2">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>短期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-3">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>公司資訊</span>
-                    </MenuItem>
+                <Menu active-name="1-3" theme="dark" width="auto" :class="menuitemClasses">
+                   <router-link to="Lpage">      
+                        <MenuItem name="1-1">
+                           <span>長期投資</span>
+                        </MenuItem>
+                   </router-link>
+                    <router-link to="Spage">
+                        <MenuItem name="1-2">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>短期投資</span>
+                        </MenuItem>
+                    </router-link>
+                    <router-link to="Ipage">
+                        <MenuItem name="1-3">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>公司資訊</span>
+                        </MenuItem>
+                    </router-link>
                 </Menu>
             </Sider>
             <Layout>
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
-                </Header> -->
+                </Header>  -->
                 <Content :style="{padding: '0 16px 16px'}">
-                    <!-- <CheckboxGroup v-model="social">
+                     <CheckboxGroup v-model="social">
                           <h1> 產業類別</h1>
                           <Checkbox label="twitter">
                              
@@ -76,7 +79,7 @@
                           <Checkbox label="苹果"></Checkbox>
                           <Checkbox label="西瓜"></Checkbox>
                       </CheckboxGroup>
-                       <Button type="primary" icon="ios-search">Search</Button> -->
+                       <Button type="primary" icon="ios-search">Search</Button>
                     <Card>
                         <svg height="100vh" width="100vw">
                          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />

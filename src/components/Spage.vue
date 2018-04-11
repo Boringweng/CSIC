@@ -8,14 +8,14 @@
         overflow: hidden;
         width: 80px;
         text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: nowrap;    
         vertical-align: bottom;
         transition: width .2s ease .2s;
     }
     .menu-item i{
         transform: translateX(0px);
         transition: font-size .2s ease, transform .2s ease;
-        vertical-align: middle;
+        /* vertical-align: middle; */
         font-size: 16px;
     }
     .collapsed-menu span{
@@ -34,21 +34,24 @@
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                 
-                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-                         
-                    <MenuItem name="1-1">
-                        <!-- <Icon type="ios-navigate"></Icon> -->
-                        
-                        <span>長期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-2">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>短期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-3">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>公司資訊</span>
-                    </MenuItem>
+                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">   
+                    <router-link to="Lpage">      
+                        <MenuItem name="1-1">
+                           <span>長期投資</span>
+                        </MenuItem>
+                   </router-link>
+                    <router-link to="Spage">
+                        <MenuItem name="1-2">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>短期投資</span>
+                        </MenuItem>
+                    </router-link>
+                    <router-link to="Ipage">
+                        <MenuItem name="1-3">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>公司資訊</span>
+                        </MenuItem>
+                    </router-link>
                 </Menu>
             </Sider>
             <Layout>
