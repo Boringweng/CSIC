@@ -58,28 +58,7 @@
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header>  -->
                 <Content :style="{padding: '0 16px 16px'}">
-                     <CheckboxGroup v-model="social">
-                          <h1> 產業類別</h1>
-                          <Checkbox label="twitter">
-                             
-                              <span>電子類股</span>
-                          </Checkbox>
-                          <Checkbox label="facebook">
-                             
-                              <span>水泥類股</span>
-                          </Checkbox>
-                          <Checkbox label="github">
-                              
-                              <span>食品類股</span>
-                          </Checkbox>
-                      </CheckboxGroup>
-                      <CheckboxGroup v-model="fruit">
-                          <h1> 搜尋條件</h1>
-                          <Checkbox label="香蕉"></Checkbox>
-                          <Checkbox label="苹果"></Checkbox>
-                          <Checkbox label="西瓜"></Checkbox>
-                      </CheckboxGroup>
-                       <Button type="primary" icon="ios-search">Search</Button>
+                     <Input v-model="nmb" placeholder="Enter something..." clearable style="width: 50px"></Input>
                     <Card>
                         <svg height="100vh" width="100vw">
                          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
@@ -94,7 +73,8 @@
     export default {
         data () {
             return {
-                isCollapsed: false
+                isCollapsed: false,
+                nbm:'股票代號或股票名稱'
             };
         },
         computed: {
