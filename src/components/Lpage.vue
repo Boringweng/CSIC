@@ -34,34 +34,33 @@
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                 
-                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+                <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
                          
-                    <MenuItem name="1-1">
-                        <!-- <Icon type="ios-navigate"></Icon> -->
-                        
-                        <span>長期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-2">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>短期投資</span>
-                    </MenuItem>
-                    <MenuItem name="1-3">
-                        <!-- <Icon type="search"></Icon> -->
-                        <span>公司資訊</span>
-                    </MenuItem>
+                   <router-link to="Lpage">      
+                        <MenuItem name="1-1">
+                           <span>長期投資</span>
+                        </MenuItem>
+                   </router-link>
+                    <router-link to="Spage">
+                        <MenuItem name="1-2">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>短期投資</span>
+                        </MenuItem>
+                    </router-link>
+                    <router-link to="Ipage">
+                        <MenuItem name="1-3">
+                            <!-- <Icon type="search"></Icon> -->
+                            <span>公司資訊</span>
+                        </MenuItem>
+                    </router-link>
                 </Menu>
             </Sider>
             <Layout>
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header> -->
                 <Content :style="{padding: '0 16px 16px'}">
-                    <CheckboxGroup v-model="social">
-                        <h1> 產業類別</h1>
-                        <b>年度:</b>
-                        <Select v-model="model1" style="width:100px">
-                            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                        </Select>
-                        <p>
+                    <h1>產業類別</h1>
+                     <CheckboxGroup class="stockpike" v-model="social" >
                         <Checkbox label="facebook">     
                             <span>水泥</span>
                         </Checkbox>
@@ -154,9 +153,19 @@
                         </Checkbox>
                         <Checkbox label="github">      
                               <span>其他</span>
-                        </Checkbox>											
-
+                        </Checkbox>	
+                      										
                     </CheckboxGroup>
+                    <Form class="datepike" :model="formItem" >
+                            <FormItem label="Date">
+                                <FormItem prop="date">
+                                    <DatePicker type="date" placeholder="Select date" v-model="formValidate.date"></DatePicker>
+                                </FormItem>                   
+                            </FormItem>
+                    </Form>    
+                    
+                   
+                    
                     <CheckboxGroup v-model="fruit">
                           <h1> 搜尋條件</h1>
                           <Checkbox label="股利發放大於"></Checkbox>
@@ -179,20 +188,22 @@
 </template>
 <script>
     export default {
+        
         data () {
             return {
                 isCollapsed: false,
-                cityList: [ 
-                    {
-                        value: '2018',
-                        label: '2018'
-                    },
-                    {
-                        value: '2017',
-                        label: '2017'
-                    },
+              
+               
+                formValidate: {
+                                 date: '',
                     
-                ],
+                },
+                ruleValidate: {
+                       date: [
+                        { required: true, type: 'date', message: 'Please select the date', trigger: 'change' }
+                    ],
+                    
+                },
                 value14: '85%',
                 value13: '15',
                 value12: '4.5%',
