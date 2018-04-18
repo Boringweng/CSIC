@@ -38,18 +38,19 @@
                          
                    <router-link to="Lpage">      
                         <MenuItem name="1-1">
+                           <Icon type="calendar"></Icon>
                            <span>長期投資</span>
                         </MenuItem>
                    </router-link>
                     <router-link to="Spage">
                         <MenuItem name="1-2">
-                            <!-- <Icon type="search"></Icon> -->
+                            <Icon type="clock"></Icon>
                             <span>短期投資</span>
                         </MenuItem>
                     </router-link>
                     <router-link to="Ipage">
                         <MenuItem name="1-3">
-                            <!-- <Icon type="search"></Icon> -->
+                          <Icon type="information-circled"></Icon>
                             <span>公司資訊</span>
                         </MenuItem>
                     </router-link>
@@ -156,14 +157,14 @@
                         </Checkbox>	
                       										
                     </CheckboxGroup>
-                    <Form class="datepike" :model="formItem" >
+                    <!-- <Form class="datepike" :model="formItem" >
                             <FormItem label="Date">
                                 <FormItem prop="date">
                                     <DatePicker type="date" placeholder="Select date" v-model="formValidate.date"></DatePicker>
                                 </FormItem>                   
                             </FormItem>
                     </Form>    
-                    
+                     -->
                    
                     
                     <CheckboxGroup v-model="fruit">
@@ -174,8 +175,8 @@
                           <Input v-model="value13" placeholder="Enter something..." clearable style="width: 50px"></Input>
                           <Checkbox label="殖利率小於"></Checkbox>
                           <Input v-model="value12" placeholder="Enter something..." clearable style="width: 50px"></Input>
+                          <Button type="primary" icon="ios-search">Search</Button>
                       </CheckboxGroup>
-                       <Button type="primary" icon="ios-search">Search</Button>
                     <Card>
                         <svg height="100vh" width="100vw">
                          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />

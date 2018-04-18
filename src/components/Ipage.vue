@@ -32,23 +32,25 @@
 <template>
     <div class="layout">
         <Layout :style="{minHeight: '100vh'}">
-            <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
+           <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                 
                 <Menu active-name="1-3" theme="dark" width="auto" :class="menuitemClasses">
+                         
                    <router-link to="Lpage">      
                         <MenuItem name="1-1">
+                           <Icon type="calendar"></Icon>
                            <span>長期投資</span>
                         </MenuItem>
                    </router-link>
                     <router-link to="Spage">
                         <MenuItem name="1-2">
-                            <!-- <Icon type="search"></Icon> -->
+                            <Icon type="clock"></Icon>
                             <span>短期投資</span>
                         </MenuItem>
                     </router-link>
                     <router-link to="Ipage">
                         <MenuItem name="1-3">
-                            <!-- <Icon type="search"></Icon> -->
+                          <Icon type="information-circled"></Icon>
                             <span>公司資訊</span>
                         </MenuItem>
                     </router-link>
@@ -58,11 +60,17 @@
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header>  -->
                 <Content :style="{padding: '0 16px 16px'}">
-                     <Input v-model="nmb" placeholder="Enter something..." clearable style="width: 50px"></Input>
+                        <h1>股票搜尋  <AutoComplete
+                            v-model="value3"
+                            :data="data3"
+                            :filter-method="filterMethod"
+                            placeholder="input here"
+                            style="width:200px">
+                        </AutoComplete></h1>
+                        
                     <Card>
-                        <svg height="100vh" width="100vw">
-                         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-                        </svg>
+                      <h1>股票名稱:2412 中華電 股票編號:2412 </h1>
+                      <Table :columns="columns1" :data="data1"></Table>
                     </Card>
                 </Content>
             </Layout>
@@ -74,7 +82,29 @@
         data () {
             return {
                 isCollapsed: false,
-                nbm:'股票代號或股票名稱'
+                nbm:'股票代號或股票名稱',
+                 value3: '',
+                data3: ['Steve Jobs', 'Stephen Gary Wozniak', 'Jonathan Paul Ive'],
+                 columns1: [
+                    {
+                        title: 'Date',
+                        key: 'date',
+                        sortable: true
+                    },
+                    {
+                        title: 'Name',
+                        key: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age',
+                        sortable: true
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
+                    }
+                ],
             };
         },
         computed: {
