@@ -56,25 +56,52 @@
                     </router-link>
                 </Menu>
             </Sider>
-            <Layout>
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header>  -->
                 <Content :style="{padding: '0 16px 16px'}">
-                        <h1>股票搜尋  <AutoComplete
+                        <h2>股票搜尋  <AutoComplete
                             v-model="value3"
                             :data="data3"
                             :filter-method="filterMethod"
                             placeholder="input here"
                             style="width:200px">
-                        </AutoComplete></h1>
+                        </AutoComplete></h2>
+                   
                         
-                    <Card>
-                      <h1>股票名稱:2412 中華電 股票編號:2412 </h1>
-                      <Table :columns="columns1" :data="data1"></Table>
-                    </Card>
+                        <Card>
+                        <Row>
+                            <Col span="8">
+                            <h2>股票名稱:2330 台積電</h2>
+                            </Col>
+                            <Col span="8">
+                            <h2>截止日期:2017/11/28</h2>
+                            </Col>
+                        </Row>
+                        <Row>   
+                            <Col span="24">
+                            <Table :columns="columns1" :data="data1"></Table>
+                            </Col>
+                        </Row>
+                        <Row>
+                             <Tabs>
+                                <TabPane label="K線圖">
+                                    <img src="http://kmfile.funddj.com/WikiFiles/d4cc2cd9-6cec-43b1-ab0d-52d6a920bdf0/tech2-6.JPG"></img>                                  
+                                </TabPane>
+                                <TabPane label="趨勢圖">
+                                        
+                                </TabPane>
+                                <TabPane label="基本資訊">标签二的内容</TabPane>
+                                <TabPane label="歷年股利">标签二的内容</TabPane>
+                                <TabPane label="除權息資訊">标签二的内容</TabPane>
+                               
+                            </Tabs>
+                        </Row>
+                       
+                        </Card>
+                    
                 </Content>
             </Layout>
-        </Layout>
+      
     </div>
 </template>
 <script>
@@ -82,28 +109,48 @@
         data () {
             return {
                 isCollapsed: false,
-                nbm:'股票代號或股票名稱',
                  value3: '',
                 data3: ['Steve Jobs', 'Stephen Gary Wozniak', 'Jonathan Paul Ive'],
                  columns1: [
                     {
-                        title: 'Date',
+                        title: '成交量',
                         key: 'date',
-                        sortable: true
+                        // sortable: true
                     },
                     {
-                        title: 'Name',
+                        title: '漲跌',
                         key: 'name'
                     },
                     {
-                        title: 'Age',
+                        title: '幅度',
                         key: 'age',
-                        sortable: true
+                       
                     },
                     {
-                        title: 'Address',
+                        title: '最高',
                         key: 'address'
-                    }
+                    },
+                    {
+                        title: '最低',
+                        key: 'age',
+                       
+                    },
+                    {
+                        title: '開盤',
+                        key: 'age',
+                       
+                    },
+                    {
+                        title: '總量',
+                        key: 'age',
+                       
+                    },
+                    {
+                        title: '振幅',
+                        key: 'age',
+                       
+                    },
+                    
                 ],
             };
         },
