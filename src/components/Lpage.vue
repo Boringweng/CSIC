@@ -181,6 +181,7 @@
                         <svg height="100vh" width="100vw">
                          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
                         </svg>
+
                     </Card>
                 </Content>
             </Layout>
@@ -188,7 +189,10 @@
     </div>
 </template>
 <script>
+      
+
     export default {
+          
         
         data () {
             return {
