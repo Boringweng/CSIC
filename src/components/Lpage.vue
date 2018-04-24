@@ -178,9 +178,7 @@
                           <Button type="primary" icon="ios-search">Search</Button>
                       </CheckboxGroup>
                     <Card>
-                        <svg height="100vh" width="100vw">
-                         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-                        </svg>
+                        <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options" />
 
                     </Card>
                 </Content>
@@ -189,19 +187,17 @@
     </div>
 </template>
 <script>
-      
-
-    export default {
-          
+      import D3Network from 'vue-d3-network'
+      export default {
+            components: {
+            D3Network
+            },
         
-        data () {
+            data () {
             return {
-                isCollapsed: false,
-              
-               
+                isCollapsed: false,              
                 formValidate: {
-                                 date: '',
-                    
+                                 date: '',   
                 },
                 ruleValidate: {
                        date: [
@@ -212,14 +208,48 @@
                 value14: '85%',
                 value13: '15',
                 value12: '4.5%',
+                 nodes: [
+                        { id: 1, name: 'my awesome node 1'},
+                        { id: 2, name: 'my node 2'},
+                        { id: 3, name:'orange node', _color: 'orange' },
+                        { id: 4, _color: '#0022ff'},
+                        { id: 5 },
+                        { id: 6 },
+                        { id: 7 },
+                        { id: 8 },
+                        { id: 9 }
+                        ],
+                  links: [
+                  { sid: 1, tid: 2 },
+                  { sid: 2, tid: 8 },
+                  { sid: 3, tid: 4 },
+                  { sid: 4, tid: 5 },
+                  { sid: 5, tid: 6 },
+                  { sid: 7, tid: 8 },
+                  { sid: 5, tid: 8 },
+                  { sid: 3, tid: 8 },
+                  { sid: 7, tid: 9 }
+                  ],
+                  nodeSize:40,
+                  canvas:false,
             };
         },
+        
         computed: {
             menuitemClasses: function () {
                 return [
                     'menu-item',
                     this.isCollapsed ? 'collapsed-menu' : ''
                 ]
+            },
+            options(){
+                  return{
+                  force: 3000,
+                  size:{ w:600, h:600},
+                  nodeSize: this.nodeSize,
+                  nodeLabels: true,
+                  canvas: this.canvas
+                  }
             }
         }
     }

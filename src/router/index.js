@@ -7,6 +7,7 @@ import demo from '@/components/demo'
 Vue.use(Router)
 
 export default new Router({
+
   routes: [
     {
       path: '/demo',

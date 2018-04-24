@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import iView from 'iview';
+import iView from 'iview'
+import D3Network from 'vue-d3-network'
 import 'iview/dist/styles/iview.css';
 
 Vue.use(iView);
