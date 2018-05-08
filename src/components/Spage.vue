@@ -169,9 +169,7 @@
                       </CheckboxGroup>
                        
                     <Card>
-                        <svg height="100vh" width="100vw">
-                         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-                        </svg>
+                        <bubble-example />
                     </Card>
                 </Content>
             </Layout>
@@ -179,22 +177,52 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                isCollapsed: false,
-                 value14: '2%',
-                 value12:'200%',
-            };
-        },
-        computed: {
-            menuitemClasses: function () {
-                return [
-                    'menu-item',
-                    this.isCollapsed ? 'collapsed-menu' : '',
-                    
-                ]
+      import BubbleExample from './BubbleExample'
+
+      export default {
+            components: {
+                  BubbleExample
+                  },
+            data () {
+                        return {
+                              datacollection: null,
+                              isCollapsed: false,
+                              value14: '2%',
+                              value12:'200%',
+                        };
+                  },
+            computed: { 
+                        menuitemClasses: function () {
+                              return [
+                                          'menu-item',
+                                          this.isCollapsed ? 'collapsed-menu' : '',
+                                    ]
+                              }
+                  }, 
+            mounted () {
+                  this.fillData()
+             },
+            methods: {
+                  fillData () {
+                  this.datacollection = {
+                        labels: [this.getRandomInt(), this.getRandomInt()],
+                        datasets: [
+                              {
+                                    label: 'Data One',
+                                    backgroundColor: '#f87979',
+                                    data: [this.getRandomInt(), this.getRandomInt()]
+                              }, 
+                              {
+                                    label: 'Data One',
+                                    backgroundColor: '#f87979',
+                                    data: [this.getRandomInt(), this.getRandomInt()]
+                              }
+                        ]
+                  }
+            },
+            getRandomInt () {
+                  return Math.floor(Math.random() * (50 - 5 + 1)) + 5
             }
-        }
-    }
+      }
+}
 </script>
