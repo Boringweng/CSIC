@@ -62,16 +62,16 @@
                 <Content :style="{padding: '0 16px 16px'}">
                     <h1>產業類別</h1>
                      <CheckboxGroup class="stockpike" v-model="social" >
-                        <Checkbox label="facebook">     
-                            <span>水泥</span>
+                        <Checkbox v-model="stock1">     
+                            {{stock1}}
                         </Checkbox>
-                        <Checkbox label="github">      
+                        <Checkbox v-model="stock2">      
                               <span>食品</span>
                         </Checkbox>
-                        <Checkbox label="github">      
+                        <Checkbox v-model="stock3">      
                               <span>塑膠</span>
                         </Checkbox>
-                        <Checkbox label="github">      
+                        <Checkbox v-model="stock1">      
                               <span>聚紡纖維</span>
                         </Checkbox>
                         <Checkbox label="github">      
@@ -232,6 +232,7 @@
                   ],
                   nodeSize:40,
                   canvas:false,
+                  stock1:'水泥',
             };
         },
         

@@ -1,45 +1,28 @@
 <template>
-  <div>
-   <h1 style="text-align:center;">Bubblechart</h1>
-      <bubble-example />
+  <div v-for="item in list" :key="item">
+  <h2>{{ item.title }}</h2>
+  <p>{{ item.info }}</p>
+  <p><a class="btn btn-default" href="#" role="button">{{ item.btntext }}</a></p>
   </div>
 </template>
 
 <script>
-  import BubbleExample from './BubbleExample'
-
-  export default {
-    components: {
-     BubbleExample
-    },
-    data () {
-      return {
-        datacollection: null
+export default {
+  // vue option 當中有 props 開發區域
+  props: {
+    // attribute name: Type
+    list: [
+      {
+        title: 'Heading',
+        info: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. ',
+        btntext: 'View details »'
       }
-    },
-    mounted () {
-      this.fillData()
-    },
-    methods: {
-      fillData () {
-        this.datacollection = {
-          labels: [this.getRandomInt(), this.getRandomInt()],
-          datasets: [
-            {
-              label: 'Data One',
-              backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
-            }, {
-              label: 'Data One',
-              backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
-            }
-          ]
-        }
-      },
-      getRandomInt () {
-        return Math.floor(Math.random() * (50 - 5 + 1)) + 5
-      }
-    }
-  }
+    ]
+  },
+  //data () {
+  //  return {
+  //    list: [ 資料"不"需要存在這邊了 ],
+  //  }
+  //},
+}
 </script>

@@ -59,19 +59,22 @@
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header>  -->
                 <Content :style="{padding: '0 16px 16px'}">
-                        <h2>股票搜尋  <AutoComplete
-                            v-model="value3"
+                        <h2>股票搜尋  
+                            <AutoComplete
+                            v-model="stacknumber"
                             :data="data3"
                             :filter-method="filterMethod"
                             placeholder="input here"
                             style="width:200px">
-                        </AutoComplete></h2>
-                   
+                            </AutoComplete>
+                            <Button type="primary" icon="ios-search">Search</Button>
+                        </h2>
+                        
                         
                         <Card>
                         <Row>
                             <Col span="8">
-                            <h2>股票名稱:2330 台積電</h2>
+                            <h2>股票名稱:{{stacknumber}}</h2>
                             </Col>
                             <Col span="8">
                             <h2>截止日期:2017/11/28</h2>
@@ -106,10 +109,13 @@
 </template>
 <script>
     export default {
+        methods(){
+            
+        },
         data () {
             return {
                 isCollapsed: false,
-                 value3: '',
+                stacknumber: '',
                 data3: ['Steve Jobs', 'Stephen Gary Wozniak', 'Jonathan Paul Ive'],
                  columns1: [
                     {
