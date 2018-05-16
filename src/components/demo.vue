@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -22,7 +22,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'HelloWorld',
+
   mounted () {
     this.$store.dispatch('loadCoins')
   },
@@ -30,8 +30,5 @@ export default {
     'coins'
   ])
 }
-</script>
 
-<style>
-  
-</style>
+</script>
