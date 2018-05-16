@@ -177,7 +177,7 @@
     </div>
 </template>
 <script>
-      import BubbleExample from './BubbleExample'
+      import BubbleExample from './Bubble'
 
       export default {
             components: {

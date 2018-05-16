@@ -6,9 +6,14 @@ import router from './router'
 import iView from 'iview'
 import D3Network from 'vue-d3-network'
 import 'iview/dist/styles/iview.css';
+import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(iView);
 Vue.config.productionTip = false
+Vue.use(Vuex)
+Vue.use(VueAxios, axios)
 
 /* eslint-disable no-new */
 new Vue({

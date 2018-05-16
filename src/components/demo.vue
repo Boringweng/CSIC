@@ -1,28 +1,37 @@
 <template>
-  <div v-for="item in list" :key="item">
-  <h2>{{ item.title }}</h2>
-  <p>{{ item.info }}</p>
-  <p><a class="btn btn-default" href="#" role="button">{{ item.btntext }}</a></p>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="coin in coins" :key="coin.id">
+          <td>{{ coin.id }}</td>
+          <td>{{ coin.name }}</td>
+          <td>{{ coin.price }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  // vue option 當中有 props 開發區域
-  props: {
-    // attribute name: Type
-    list: [
-      {
-        title: 'Heading',
-        info: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. ',
-        btntext: 'View details »'
-      }
-    ]
+  name: 'HelloWorld',
+  mounted () {
+    this.$store.dispatch('loadCoins')
   },
-  //data () {
-  //  return {
-  //    list: [ 資料"不"需要存在這邊了 ],
-  //  }
-  //},
+  computed: mapState([
+    'coins'
+  ])
 }
 </script>
+
+<style>
+  
+</style>

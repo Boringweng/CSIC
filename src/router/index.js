@@ -4,17 +4,17 @@ import Lpage from '@/components/Lpage'
 import Spage from '@/components/Spage'
 import Ipage from '@/components/Ipage'
 import demo from '@/components/demo'
-import demo01 from '@/components/demo01'
+// import demo01 from '@/components/demo01'
 Vue.use(Router)
 
 export default new Router({
 
   routes: [
-    {
-      path: '/demo1',
-      name: '測試',
-      component: demo1
-    },
+    // {
+    //   path: '/demo1',
+    //   name: '測試',
+    //   component: demo1
+    // },
     {
       path: '/demo',
       name: '測試',
