@@ -33,28 +33,7 @@
     <div class="layout">
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
-                
-                <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
-                         
-                   <router-link to="Lpage">      
-                        <MenuItem name="1-1">
-                           <Icon type="calendar"></Icon>
-                           <span>長期投資</span>
-                        </MenuItem>
-                   </router-link>
-                    <router-link to="Spage">
-                        <MenuItem name="1-2">
-                            <Icon type="clock"></Icon>
-                            <span>短期投資</span>
-                        </MenuItem>
-                    </router-link>
-                    <router-link to="Ipage">
-                        <MenuItem name="1-3">
-                          <Icon type="information-circled"></Icon>
-                            <span>公司資訊</span>
-                        </MenuItem>
-                    </router-link>
-                </Menu>
+                  <slider></slider>
             </Sider>
             <Layout>
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
@@ -187,11 +166,16 @@
     </div>
 </template>
 <script>
-      import D3Network from 'vue-d3-network'
+      import slider from './slider.vue';
+
+      import D3Network from 'vue-d3-network';
       export default {
-            components: {
-            D3Network
-            },
+               components: {
+                  'slider':slider,
+                  D3Network
+        
+                  },
+           
         
             data () {
             return {

@@ -32,131 +32,112 @@
 <template>
     <div class="layout">
         <Layout :style="{minHeight: '100vh'}">
-          <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
-                
-                <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-                         
-                   <router-link to="Lpage">      
-                        <MenuItem name="1-1">
-                           <Icon type="calendar"></Icon>
-                           <span>長期投資</span>
-                        </MenuItem>
-                   </router-link>
-                    <router-link to="Spage">
-                        <MenuItem name="1-2">
-                            <Icon type="clock"></Icon>
-                            <span>短期投資</span>
-                        </MenuItem>
-                    </router-link>
-                    <router-link to="Ipage">
-                        <MenuItem name="1-3">
-                          <Icon type="information-circled"></Icon>
-                            <span>公司資訊</span>
-                        </MenuItem>
-                    </router-link>
-                </Menu>
-            </Sider>
+          <Sider collapsible :collapsed-width="78" v-model="isCollapsed">     
+               <slider></slider>
+          </Sider>
             <Layout>
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header> -->
                 <Content :style="{padding: '0 16px 16px'}">
-                    <h1> 產業類別</h1>
-                   <CheckboxGroup class="stockpike" v-model="social" >
-                        <Checkbox label="facebook">     
-                            <span>水泥</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>食品</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>塑膠</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>聚紡纖維</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電機機械</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電器電纜</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>生化科技</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>化工</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>生技醫療</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>玻璃陶瓷</span>
-                        </Checkbox>
-                       	<Checkbox label="github">      
-                              <span>造紙</span>
-                        </Checkbox>	
-                        <Checkbox label="github">      
-                              <span>鋼鐵</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>橡膠</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>汽車</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子全部</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>半導體</span>
-                        </Checkbox>	
-                        <Checkbox label="github">      
-                              <span>電腦與周邊</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>光電</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>通信網路</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子零組件</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子通路</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>資訊服務</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>其他電子</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>建材營造</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>航運業</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>餐飲業</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>金融保險</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>貿易百貨</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>油電燃氣</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>存託憑證</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>其他</span>
-                        </Checkbox>	
-                      										
-                    </CheckboxGroup>
+                   <div id="class">
+                        <h1> 產業類別</h1>
+                        <CheckboxGroup class="stockpike" v-model="social" >
+                              <Checkbox label="facebook">     
+                              <span>水泥</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>食品</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>塑膠</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>聚紡纖維</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>電機機械</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>電器電纜</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>生化科技</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>化工</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>生技醫療</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>玻璃陶瓷</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>造紙</span>
+                              </Checkbox>	
+                              <Checkbox label="github">      
+                                    <span>鋼鐵</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>橡膠</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>汽車</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>電子全部</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>半導體</span>
+                              </Checkbox>	
+                              <Checkbox label="github">      
+                                    <span>電腦與周邊</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>光電</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>通信網路</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>電子零組件</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>電子通路</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>資訊服務</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>其他電子</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>建材營造</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>航運業</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>餐飲業</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>金融保險</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>貿易百貨</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>油電燃氣</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>存託憑證</span>
+                              </Checkbox>
+                              <Checkbox label="github">      
+                                    <span>其他</span>
+                              </Checkbox>	
+                                                                                    
+                        </CheckboxGroup>
+                   </div>
                       <CheckboxGroup v-model="fruit">
                            <h1> 搜尋條件</h1>
                           <Checkbox label="周轉率大於"></Checkbox>
@@ -167,7 +148,7 @@
                           <Input v-model="value12" placeholder="Enter something..." clearable style="width: 50px"></Input>
                           <Button type="primary" icon="ios-search">Search</Button>
                       </CheckboxGroup>
-                       
+
                     <Card>
                         <bubble-example />
                     </Card>
@@ -178,9 +159,10 @@
 </template>
 <script>
       import BubbleExample from './Bubble'
-
+      import slider from './slider.vue';
       export default {
             components: {
+                  'slider':slider,
                   BubbleExample
                   },
             data () {
