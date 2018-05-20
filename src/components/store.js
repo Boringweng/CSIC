@@ -8,16 +8,22 @@ Vue.use(VueAxios, axios)
 
 export default new Vuex.Store({
     state: {
-    coins: []
+    Ldata: []
   },
   actions: {
     loadCoins ({ commit }) {
       axios
-        .get('http://localhost:4000/results')
+        .get('http://163.13.127.53:7153/div_yield')
         .then(r => r.data)
-        .then(coins => {
-        commit('SET_COINS', coins)
-        })
+        .then(Ldata= state.r.map(
+            r=>{
+              date:r.date;
+              security_code:r.security_code;
+              name:r.name;
+              dividend_yield:r.dividend_yield
+            }
+        )
+      )
     }
   },
   mutations: {

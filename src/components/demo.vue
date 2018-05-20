@@ -1,34 +1,35 @@
 <template>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="coin in coins" :key="coin.id">
-          <td>{{ coin.id }}</td>
-          <td>{{ coin.name }}</td>
-          <td>{{ coin.price }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div id="app" class="wrap">
+  
+   <p>{{hi}}</p>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 export default {
+    data(){
+    return{
+      hi:'sdasa'
+      }
+    },
+    created(){
+      this.getdata();
+    },
+   methods:{
+     getdata () {
+       this.hi='loading';
+       axios.get('https://ron-swanson-quotes.herokuapp.com/v2/quotes')
+       .then(function (response){
+            this.hi=response.data[0];
+       })
+       .catch(function (error){
+           console.log(error);
+       })
+      }
+   }
 
-  mounted () {
-    this.$store.dispatch('loadCoins')
-  },
-  computed: mapState([
-    'coins'
-  ])
+
 }
 
 </script>
