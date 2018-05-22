@@ -30,7 +30,7 @@
     }
 </style>
 <template>
-    <div class="layout">
+    <div id="Lpage" class="layout">
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                   <slider></slider>
