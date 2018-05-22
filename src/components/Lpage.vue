@@ -179,6 +179,7 @@
         
             data () {
             return {
+                  
                 isCollapsed: false,              
                 formValidate: {
                                  date: '',   

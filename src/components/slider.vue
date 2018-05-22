@@ -1,8 +1,8 @@
 <template>
     <div id="slider">
-         <Menu active-name="1-1" theme="dark" width="auto" :class="menuitemClasses">
+         <Menu  theme="dark" width="auto" :class="menuitemClasses">
                          
-                   <router-link to="Lpage">      
+                   <router-link to="/">      
                         <MenuItem name="1-1">
                            <Icon type="calendar"></Icon>
                            <span>長期投資</span>
