@@ -13,8 +13,9 @@ import VueAxios from 'vue-axios'
 
 Vue.use(iView);
 Vue.config.productionTip = false
-Vue.use(Vuex)
-Vue.use(VueAxios, axios)
+Vue.use(Vuex);
+Vue.use(axios);
+Vue.use(VueAxios);
 // Vue.use(Vueresource)
 /* eslint-disable no-new */
 new Vue({
