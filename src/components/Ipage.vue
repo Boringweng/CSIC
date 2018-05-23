@@ -53,11 +53,11 @@
                         <Card>
                         <Row>
                             <Col span="8">
-                            <h2>股票名稱:{{stacknumber}}</h2>
+                            <h2>股票名稱:{{name}}</h2>
                             </Col>
-                            <Col span="8">
-                            <h2>截止日期:2017/11/28</h2>
-                            </Col>
+                            <!-- <Col span="8">
+                            <h2>截止日期:{{}}</h2>
+                            </Col> -->
                         </Row>
                         <Row>   
                             <Col span="24">
@@ -68,14 +68,14 @@
                              <Tabs>
                               
                                 <TabPane label="趨勢圖">
-                                        
+                                 <TabPane label="K線圖">
+                                    <img src="http://kmfile.funddj.com/WikiFiles/d4cc2cd9-6cec-43b1-ab0d-52d6a920bdf0/tech2-6.JPG"></img>                                  
+                                </TabPane>       
                                 </TabPane>
                                 <TabPane label="基本資訊">标签二的内容</TabPane>
                                 <TabPane label="歷年股利">标签二的内容</TabPane>
                                 <TabPane label="除權息資訊">标签二的内容</TabPane>
-                                 <TabPane label="K線圖">
-                                    <img src="http://kmfile.funddj.com/WikiFiles/d4cc2cd9-6cec-43b1-ab0d-52d6a920bdf0/tech2-6.JPG"></img>                                  
-                                </TabPane>
+                                 
                             </Tabs>
                         </Row>
                        
@@ -92,64 +92,65 @@
         components: {
                   'slider':slider,        
                   },
-        methods(){
-            
-        },
+       
         data () {
             return {
+                data1:[
+                    {
+                       a:'933',
+                       
+                       d:'9.95',
+                      
+                       f:'9.91',
+                      
+                       
+                    }
+
+                ],
                 isCollapsed: false,
                 stacknumber: '',
                 data3: ['Steve Jobs', 'Stephen Gary Wozniak', 'Jonathan Paul Ive'],
                  columns1: [
                     {
                         title: '成交量',
-                        key: 'date',
+                        key: 'a',
                         // sortable: true
                     },
-                    {
-                        title: '漲跌',
-                        key: 'name'
-                    },
-                    {
-                        title: '幅度',
-                        key: 'age',
-                       
-                    },
+                  
                     {
                         title: '最高',
-                        key: 'address'
+                        key: 'd'
                     },
-                    {
-                        title: '最低',
-                        key: 'age',
-                       
-                    },
+                   
                     {
                         title: '開盤',
-                        key: 'age',
-                       
-                    },
-                    {
-                        title: '總量',
-                        key: 'age',
-                       
-                    },
-                    {
-                        title: '振幅',
-                        key: 'age',
+                        key: 'f',
                        
                     },
                     
+                    
                 ],
+                name:"大將",
+                date:"",
             };
         },
         computed: {
+            created(){
+                this.setnumber();
+            },
             menuitemClasses: function () {
                 return [
                     'menu-item',
                     this.isCollapsed ? 'collapsed-menu' : ''
                 ]
             }
-        }
+        },
+        methods:{
+            setnumber() {
+             this.name ='大將';
+            this.date='2018/5/23';
+             
+            }
+        },
     }
 </script>

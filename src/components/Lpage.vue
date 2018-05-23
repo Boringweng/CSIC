@@ -154,10 +154,16 @@
                           <Input v-model="value13" placeholder="Enter something..." clearable style="width: 50px"></Input>
                           <Checkbox label="殖利率小於"></Checkbox>
                           <Input v-model="value12" placeholder="Enter something..." clearable style="width: 50px"></Input>
-                          <Button type="primary" icon="ios-search">Search</Button>
+                          <Button type="primary" icon="ios-search"  v-on:click="show">Search</Button>
                       </CheckboxGroup>
-                    <Card>
-                        <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options" />
+                    <Card v-if="showcard">
+                        <d3-network 
+                        ref='net' 
+                        :net-nodes="nodes"
+                        :net-links="links" 
+                        :options="options"
+                        @node-click="nodeClick"
+                          />
 
                     </Card>
                 </Content>
@@ -167,7 +173,7 @@
 </template>
 <script>
       import slider from './slider.vue';
-
+      
       import D3Network from 'vue-d3-network';
       export default {
                components: {
@@ -176,10 +182,18 @@
         
                   },
            
-        
+            methods: {
+                  show:function(event){
+                        this.showcard=true
+                  },
+                    nodeClick (event, nodes){
+                          
+                    window.location = 'http://localhost:8888/#/Ipage';
+            },
+            },
             data () {
             return {
-                  
+                  showcard:false,
                 isCollapsed: false,              
                 formValidate: {
                                  date: '',   
@@ -194,15 +208,16 @@
                 value13: '15',
                 value12: '4.5%',
                  nodes: [
-                        { id: 1, name: 'my awesome node 1'},
-                        { id: 2, name: 'my node 2'},
-                        { id: 3, name:'orange node', _color: 'orange' },
-                        { id: 4, _color: '#0022ff'},
-                        { id: 5 },
-                        { id: 6 },
-                        { id: 7 },
+                        { id: 1, name: '大將',_size:70,_color: 'red'},
+                        { id: 2, name: '潤泰全',_size:60},
+                        { id: 3, name:'宜進',_size:50, _color: 'orange' },
+                        { id: 4, name:'東森',_size:40,_color: '#0022ff'},
+                        { id: 5,name:'群創',_size:30 },
+                        { id: 6,name:'友達',_size:20 },
+                        { id: 7,name:'上曜',_size:10 },
                         { id: 8 },
-                        { id: 9 }
+                        { id: 9 },
+                        { id:10}
                         ],
                   links: [
                   { sid: 1, tid: 2 },
@@ -213,7 +228,8 @@
                   { sid: 7, tid: 8 },
                   { sid: 5, tid: 8 },
                   { sid: 3, tid: 8 },
-                  { sid: 7, tid: 9 }
+                  { sid: 7, tid: 9 },
+                  { sid: 8,tid:10},
                   ],
                   nodeSize:40,
                   canvas:false,
@@ -228,6 +244,7 @@
                     this.isCollapsed ? 'collapsed-menu' : ''
                 ]
             },
+            
             options(){
                   return{
                   force: 3000,
