@@ -79,7 +79,7 @@ export default {
               for(i=0;i<10;i++)
               {
                 alert('hi');
-                _this.nodes[i].name=response.data[i].name;
+                _this.nodes[i].name=data[i].name;
               }
             })
             

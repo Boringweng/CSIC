@@ -188,7 +188,7 @@
                   },
                     nodeClick (event, nodes){
                           
-                    window.location = 'http://localhost:8888/#/Ipage';
+                    window.location = 'http://localhost:8080/#/Ipage';
             },
             },
             data () {

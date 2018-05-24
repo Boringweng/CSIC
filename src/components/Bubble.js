@@ -7,11 +7,11 @@ export default {
     this.renderChart({
       datasets: [
         {
-          label: 'Data One',
+          label: '',
           backgroundColor: '#f87979',
           data: [
             {
-              x: 20,
+              x: 33,
               y: 25,
               r: 5
             },

@@ -67,11 +67,11 @@
                         <Row>
                              <Tabs>
                               
-                                <TabPane label="趨勢圖">
-                                 <TabPane label="K線圖">
-                                    <img src="http://kmfile.funddj.com/WikiFiles/d4cc2cd9-6cec-43b1-ab0d-52d6a920bdf0/tech2-6.JPG"></img>                                  
+                                
+                                <TabPane label="K線圖">
+                                    <img src="./K線圖.png"></img>                                  
                                 </TabPane>       
-                                </TabPane>
+                                
                                 <TabPane label="基本資訊">标签二的内容</TabPane>
                                 <TabPane label="歷年股利">标签二的内容</TabPane>
                                 <TabPane label="除權息資訊">标签二的内容</TabPane>

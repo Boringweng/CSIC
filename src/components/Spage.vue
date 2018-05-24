@@ -146,10 +146,10 @@
                         
                           <Checkbox label="量增"></Checkbox>
                           <Input v-model="value12" placeholder="Enter something..." clearable style="width: 50px"></Input>
-                          <Button type="primary" icon="ios-search">Search</Button>
+                          <Button type="primary" icon="ios-search" v-on:click="show">Search</Button>
                       </CheckboxGroup>
 
-                    <Card>
+                    <Card v-if="showcard">
                         <bubble-example />
                     </Card>
                 </Content>
@@ -167,6 +167,7 @@
                   },
             data () {
                         return {
+                              showcard:false,
                               datacollection: null,
                               isCollapsed: false,
                               value14: '2%',
@@ -185,6 +186,9 @@
                   this.fillData()
              },
             methods: {
+                  show:function(event){
+                        this.showcard=true
+                  },
                   fillData () {
                   this.datacollection = {
                         labels: [this.getRandomInt(), this.getRandomInt()],
