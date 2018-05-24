@@ -39,103 +39,103 @@
                 <!-- <Header :style="{background: '#fff', boxShadow: '0 px 3px 2px rgba(0,0,0,.1)'}">
                 </Header> -->
                 <Content :style="{padding: '0 16px 16px'}">
-                    <h1>產業類別</h1>
-                     <CheckboxGroup class="stockpike" v-model="social" >
-                        <Checkbox v-model="stock1">     
-                            {{stock1}}
-                        </Checkbox>
-                        <Checkbox v-model="stock2">      
-                              <span>食品</span>
-                        </Checkbox>
-                        <Checkbox v-model="stock3">      
-                              <span>塑膠</span>
-                        </Checkbox>
-                        <Checkbox v-model="stock1">      
-                              <span>聚紡纖維</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電機機械</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電器電纜</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>生化科技</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>化工</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>生技醫療</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>玻璃陶瓷</span>
-                        </Checkbox>
-                       	<Checkbox label="github">      
-                              <span>造紙</span>
-                        </Checkbox>	
-                        <Checkbox label="github">      
-                              <span>鋼鐵</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>橡膠</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>汽車</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子全部</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>半導體</span>
-                        </Checkbox>	
-                        <Checkbox label="github">      
-                              <span>電腦與周邊</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>光電</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>通信網路</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子零組件</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>電子通路</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>資訊服務</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>其他電子</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>建材營造</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>航運業</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>餐飲業</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>金融保險</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>貿易百貨</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>油電燃氣</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>存託憑證</span>
-                        </Checkbox>
-                        <Checkbox label="github">      
-                              <span>其他</span>
-                        </Checkbox>	
-                      										
-                    </CheckboxGroup>
+                  <h1>產業類別</h1>
+                  <CheckboxGroup class="stockpike" v-model="social">
+                              <Checkbox label="01">     
+                                    <span>水泥</span>
+                              </Checkbox>
+                              <Checkbox label="02">      
+                                    <span>食品</span>
+                              </Checkbox>
+                              <Checkbox label="03">      
+                                    <span>塑膠</span>
+                              </Checkbox>
+                              <Checkbox label="04">      
+                                    <span>聚紡纖維</span>
+                              </Checkbox>
+                              <Checkbox label="05">      
+                                    <span>電機機械</span>
+                              </Checkbox>
+                              <Checkbox label="06">      
+                                    <span>電器電纜</span>
+                              </Checkbox>
+                              <Checkbox label="07">      
+                                    <span>生化科技</span>
+                              </Checkbox>
+                              <Checkbox label="08">      
+                                    <span>化工</span>
+                              </Checkbox>
+                              <Checkbox label="09">      
+                                    <span>生技醫療</span>
+                              </Checkbox>
+                              <Checkbox label="10">      
+                                    <span>玻璃陶瓷</span>
+                              </Checkbox>
+                              <Checkbox label="11">      
+                                    <span>造紙</span>
+                              </Checkbox>	
+                              <Checkbox label="12">      
+                                    <span>鋼鐵</span>
+                              </Checkbox>
+                              <Checkbox label="13">      
+                                    <span>橡膠</span>
+                              </Checkbox>
+                              <Checkbox label="14">      
+                                    <span>汽車</span>
+                              </Checkbox>
+                              <Checkbox label="15">      
+                                    <span>電子全部</span>
+                              </Checkbox>
+                              <Checkbox label="16">      
+                                    <span>半導體</span>
+                              </Checkbox>	
+                              <Checkbox label="17">      
+                                    <span>電腦與周邊</span>
+                              </Checkbox>
+                              <Checkbox label="18">      
+                                    <span>光電</span>
+                              </Checkbox>
+                              <Checkbox label="19">      
+                                    <span>通信網路</span>
+                              </Checkbox>
+                              <Checkbox label="20">      
+                                    <span>電子零組件</span>
+                              </Checkbox>
+                              <Checkbox label="21">      
+                                    <span>電子通路</span>
+                              </Checkbox>
+                              <Checkbox label="22">      
+                                    <span>資訊服務</span>
+                              </Checkbox>
+                              <Checkbox label="23">      
+                                    <span>其他電子</span>
+                              </Checkbox>
+                              <Checkbox label="24">      
+                                    <span>建材營造</span>
+                              </Checkbox>
+                              <Checkbox label="25">      
+                                    <span>航運業</span>
+                              </Checkbox>
+                              <Checkbox label="26">      
+                                    <span>餐飲業</span>
+                              </Checkbox>
+                              <Checkbox label="27">      
+                                    <span>金融保險</span>
+                              </Checkbox>
+                              <Checkbox label="28">      
+                                    <span>貿易百貨</span>
+                              </Checkbox>
+                              <Checkbox label="29">      
+                                    <span>油電燃氣</span>
+                              </Checkbox>
+                              <Checkbox label="30">      
+                                    <span>存託憑證</span>
+                              </Checkbox>
+                              <Checkbox label="31">      
+                                    <span>其他</span>
+                              </Checkbox>	
+                                                                                    
+                        </CheckboxGroup>
                     <!-- <Form class="datepike" :model="formItem" >
                             <FormItem label="Date">
                                 <FormItem prop="date">
@@ -181,7 +181,6 @@
                   D3Network
         
                   },
-           
             methods: {
                   show:function(event){
                         this.showcard=true

@@ -8,16 +8,17 @@ import D3Network from 'vue-d3-network'
 import 'iview/dist/styles/iview.css';
 import Vuex from 'vuex'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
+// import VueAxios from 'vue-axios'
 
 // import Vueresource from 'vue-resource'
 
 Vue.use(iView);
 Vue.config.productionTip = false
 Vue.use(Vuex);
-Vue.use(VueAxios);
-Vue.use(axios);
-
+// Vue.use(VueAxios);
+// Vue.use(axios);
+Vue.prototype.$http = axios
+  
 // Vue.use(Vueresource)
 /* eslint-disable no-new */
 new Vue({
@@ -25,8 +26,5 @@ new Vue({
   router,
   components: { App },
   template: '<App/>',
-  data()
-  {
-    stocknumber:'';
-  }
+  
 })

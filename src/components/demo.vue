@@ -13,16 +13,18 @@
 import axios from 'axios'
 import D3Network from 'vue-d3-network';
 import { mapState } from 'vuex';
-var nodename=[''];
-var i;
+var nodename=[{name:''
+}];
+
 export default {
     components: {
       D3Network
     },
     data(){
     return{
+      
       info:'sdasa',
-      nodename:'',
+      nodename:[],
       nodes: [
                         { id: 1, name:'',_color: '#0022ff'},
                         { id: 2, name:'sadas'},
@@ -32,7 +34,7 @@ export default {
                         { id: 6, name:''},
                         { id: 7, name:''},
                         { id: 8, name:''},
-                        { id: 9, name:''},
+                        { id: 9, name:''},  
                         { id: 10, name:''},
                         ],
                   links: [
@@ -62,27 +64,27 @@ export default {
             }
     },
     created(){
-      this.getdata();
+      
     },
    methods:{
      movetoIpage:function(event){
-        alert(nodename[0])
+        this.info=this.nodes[0].name;
+        
      },
      getdata () {
-       let _this = this
+       let _this=this;
        this.info='loading';
           axios
             .get('http://163.13.127.53:7153/pe_ratio')
             .then(response => (this.info = response)) 
             .then(function(respone){
              
-              for(i=0;i<10;i++)
+              for(var i=0;i<10;i++)
               {
-                alert('hi');
-                _this.nodes[i].name=data[i].name;
+                // this.nodename[i].push(data[0].test);
+                _this.nodes[i].name=respone.data.data[i].name;
               }
             })
-            
             .catch(function (error){
               console.log(error);
             })

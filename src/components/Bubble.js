@@ -33,7 +33,7 @@ export default {
           data: [
             {
               x: 10,
-              y: 60,
+              y: 66,
               r: 15
             },
             {
