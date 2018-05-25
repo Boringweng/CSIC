@@ -1,28 +1,32 @@
 <template>
   <div id="app" class="wrap">
     <button v-on:click='movetoIpage'> toIpage with stocknumber</button>
-    <button v-on:click='getdata'> getdatar</button> 
+    <button v-on:click='getdata'> getdatar</button>
+   <Checkbox v-model="single">Checkbox</Checkbox>
+   <Checkbox v-model="single2">numbertwo</Checkbox>
     <p>{{info}}</p>
     <Card>
     <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options" />
     </Card>
   </div>
-</template>
-
+</template> 
 <script>
 import axios from 'axios'
 import D3Network from 'vue-d3-network';
 import { mapState } from 'vuex';
+import getapi from './getapi.js'
 var nodename=[{name:''
 }];
 
 export default {
     components: {
-      D3Network
+      D3Network,
+      getapi,
     },
     data(){
     return{
-      
+      single:false,
+      single2:false,
       info:'sdasa',
       nodename:[],
       nodes: [
@@ -71,24 +75,33 @@ export default {
         this.info=this.nodes[0].name;
         
      },
-     getdata () {
-       let _this=this;
-       this.info='loading';
-          axios
-            .get('http://163.13.127.53:7153/pe_ratio')
-            .then(response => (this.info = response)) 
-            .then(function(respone){
+     
+    //  getdata () {
+    //    let _this=this;
+    //    this.info='loading';
+    //       var api='pe_ratio';
+    //       if(_this.single)
+    //       {
+    //       axios
+    //         .get('http://163.13.127.53:7153/'+api)
+    //         .then(response => (this.info = response)) 
+    //         .then(function(respone){
              
-              for(var i=0;i<10;i++)
-              {
-                // this.nodename[i].push(data[0].test);
-                _this.nodes[i].name=respone.data.data[i].name;
-              }
-            })
-            .catch(function (error){
-              console.log(error);
-            })
-      }
+    //           for(var i=0;i<10;i++)
+    //           {
+    //             // this.nodename[i].push(data[0].test);
+    //             _this.nodes[i].name=respone.data.data[i].name;
+    //           }
+    //         })
+    //         .catch(function (error){
+    //           console.log(error);
+    //         })
+    //       }
+    //       else
+    //       {
+    //         alert('checkbook');
+    //       }
+    //   }
    }
  
  

@@ -208,27 +208,22 @@
                 value12: '4.5%',
                  nodes: [
                         { id: 1, name: '大將',_size:70,_color: 'red'},
-                        { id: 2, name: '潤泰全',_size:60},
+                        { id: 2, name: '潤泰全',_size:60,_color: '#0022ff'},
                         { id: 3, name:'宜進',_size:50, _color: 'orange' },
-                        { id: 4, name:'東森',_size:40,_color: '#0022ff'},
+                        { id: 4, name:'東森',_size:40,},
                         { id: 5,name:'群創',_size:30 },
                         { id: 6,name:'友達',_size:20 },
                         { id: 7,name:'上曜',_size:10 },
-                        { id: 8 },
-                        { id: 9 },
-                        { id:10}
+                        
                         ],
                   links: [
                   { sid: 1, tid: 2 },
-                  { sid: 2, tid: 8 },
+                  { sid: 2, tid: 3 },
                   { sid: 3, tid: 4 },
                   { sid: 4, tid: 5 },
                   { sid: 5, tid: 6 },
-                  { sid: 7, tid: 8 },
-                  { sid: 5, tid: 8 },
-                  { sid: 3, tid: 8 },
-                  { sid: 7, tid: 9 },
-                  { sid: 8,tid:10},
+                  { sid: 6, tid: 7  },
+                 
                   ],
                   nodeSize:40,
                   canvas:false,
