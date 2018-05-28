@@ -41,7 +41,15 @@ export default {
                     
                 },
             }
-        }
+        },
+    computed:{
+          menuitemClasses: function () {
+                return [
+                    'menu-item',
+                    this.isCollapsed ? 'collapsed-menu' : ''
+                ]
+            },
+    }
 }
 </script>
 
