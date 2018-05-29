@@ -281,7 +281,7 @@
                         if(respone.data.data[0]!=null){
                               for(var i=0;i<10;i++)
                               {     
-                                    if(respone.data.data[i]!=null)
+                                    // if(respone.data.data[i]!=null)
                               // this.nodename[i].push(data[0].test);
                                           _this.nodes[i].name=respone.data.data[i].name;
                                           _this.nodes[i].security_code=respone.data.data[i].security_code;
@@ -358,7 +358,38 @@
                   ],
                   nodeSize:40,
                   canvas:false,
-                
+                stock1:false,
+                stock2:false,
+                stock3:false,
+                stock4:false,
+                stock5:false,
+                stock6:false,
+                stock7:false,
+                stock8:false,
+                stock9:false,
+                stock10:false,
+                stock11:false,
+                stock12:false,
+                stock13:false,
+                stock14:false,
+                stock15:false,
+                stock16:false,
+                stock17:false,
+                stock18:false,
+                stock19:false,
+                stock20:false,
+                stock21:false,
+                stock22:false,
+                stock23:false,
+                stock24:false,
+                stock25:false,
+                stock26:false,
+                stock27:false,
+                stock28:false,
+                stock29:false,
+                stock30:false,
+                stock31:false,
+               
             };
         },
         
