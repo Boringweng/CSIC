@@ -40,13 +40,12 @@
                 <Content :style="{padding: '0 16px 16px'}">
                         <h2>股票搜尋  
                             <AutoComplete
-                            v-model="stacknumber"
+                            v-model="security_code"
                             :data="data3"
-                            :filter-method="filterMethod"
                             placeholder="input here"
                             style="width:200px">
                             </AutoComplete>
-                            <Button type="primary" icon="ios-search">Search</Button>
+                            <Button type="primary" icon="ios-search"  v-on:click="getdata">Search</Button>
                         </h2>
                         
                         
@@ -61,7 +60,7 @@
                         </Row>
                         <Row>   
                             <Col span="24">
-                            <Table :columns="columns1" :data="data1"></Table>
+                            <Table :columns="columns1" :data="tabledata"></Table>
                             </Col>
                         </Row>
                         <Row>
@@ -69,7 +68,7 @@
                               
                                 
                                 <TabPane label="K線圖">
-                                    <img src="./K線圖.png"></img>                                  
+                                    <ve-candle :data="chartData" :settings="chartSettings"></ve-candle>                          
                                 </TabPane>       
                                 
                                 <TabPane label="基本資訊">标签二的内容</TabPane>
@@ -88,50 +87,84 @@
 </template>
 <script>
  import slider from './slider.vue';
+ import Lpage from'./Lpage.vue';
+ import axios from 'axios'
     export default {
         components: {
-                  'slider':slider,        
+                  'slider':slider,
+                  Lpage,        
                   },
        
         data () {
             return {
-                data1:[
-                    {
-                       a:'933',
-                       
-                       d:'9.95',
-                      
-                       f:'9.91',
-                      
-                       
-                    }
 
-                ],
+               
+                chartData:{
+                    columns: ['日期', 'open', 'close', 'lowest', 'highest', 'vol'],
+                    rows:[
+                    ['',,, , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ]
+                },
                 isCollapsed: false,
-                stacknumber: '',
-                data3: ['Steve Jobs', 'Stephen Gary Wozniak', 'Jonathan Paul Ive'],
+                security_code:1101,
+                name:"",
+                data3: ['1101', '2498', '2330'],
                  columns1: [
                     {
-                        title: '成交量',
-                        key: 'a',
+                        title: '日期',
+                        key: 'date',
                         // sortable: true
                     },
                   
                     {
-                        title: '最高',
-                        key: 'd'
+                        title: '開盤價',
+                        key: 'open'
                     },
                    
                     {
-                        title: '開盤',
-                        key: 'f',
+                        title: '收盤價',
+                        key: 'close',
                        
                     },
-                    
-                    
+                    {
+                        title: '最低價',
+                        key: 'lowest',
+                       
+                    },
+                    {
+                        title: '最高價',
+                        key: 'highest',
+                       
+                    },
+                    {
+                        title: '成交量',
+                        key: 'vol',
+                       
+                    },   
                 ],
-                name:"大將",
-                date:"",
+                 tabledata:[
+                    {
+                       date:'',
+                       open:'',
+                       close:'',
+                       lowest:'',
+                       highest:'',
+                       vol:'',
+                     
+                    }
+
+                ],
+                
+                
             };
         },
         computed: {
@@ -150,7 +183,56 @@
              this.name ='大將';
             this.date='2018/5/23';
              
-            }
+            },
+            getdata () {
+         let _this=this;
+         var i;
+         var api='ohlc/'+this.security_code;
+         console.log('security_code:'+this.security_code);
+         var lis = ['日期', 'open', 'close', 'lowest', 'highest', 'vol'];
+          axios
+            .get('http://163.13.127.53:7153/'+api)
+            .then(response => (this.info = response)) 
+            .then(function(respone){
+           
+              for(i=0;i<10;i++)
+              {
+                   
+                _this.chartData.rows[9-i][0]=respone.data.data[i].date;
+    
+                _this.chartData.rows[9-i][1]=respone.data.data[i].open_price;
+                _this.chartData.rows[9-i][2]=respone.data.data[i].close_price;
+                _this.chartData.rows[9-i][3]=respone.data.data[i].low_price;
+                _this.chartData.rows[9-i][4]=respone.data.data[i].high_price;
+                _this.chartData.rows[9-i][5]=respone.data.data[i].trade_volume;
+                            
+              }
+              _this.tabledata[0].date=respone.data.data[0].date;
+              _this.tabledata[0].open=respone.data.data[0].open_price;
+              _this.tabledata[0].close=respone.data.data[0].close_price;
+              _this.tabledata[0].lowest=respone.data.data[0].low_price;
+              _this.tabledata[0].highest=respone.data.data[0].high_price;
+              _this.tabledata[0].vol=respone.data.data[0].trade_volume;
+              _this.name=respone.data.data[0].name;
+              
+                _this.change()
+                    
+            })
+            .catch(function (error){
+              console.log(error);
+              })
+              
+        
+          
+      },
+      change(){
+                var lis = ['日期', 'open', 'close', 'lowest', 'highest', 'vol'];
+                    for (var i = 0; i <= lis.length - 1; i++) {
+                        this.$set(this.chartData.columns,i,lis[i]);
+                      
+                    }
+             },
         },
+         chartSettings(){}
     }
 </script>

@@ -174,21 +174,27 @@
 </template>
 <script>
     import axios from 'axios'
-    import slider from './slider.vue';   
+    import slider from './slider.vue';
+    import Ipage from './Ipage.vue';   
     import D3Network from 'vue-d3-network';
     export default {
                components: {
                   'slider':slider,
-                  D3Network
+                  D3Network,Ipage,
                 },
             methods: {
                   show:function(event){
-                        this.showcard=true
+                        
                         this.choosestack();
                         this.getdata();
                 },
                     nodeClick (event, nodes){
-                           window.location = 'http://localhost:8080/#/Ipage';
+                        //  this.$set(this.Ipage.security_code,security_code,nodes.security_code);
+                        //  this.$set(this.Ipage.name,security_code,nodes.name);
+                        //   alert(_this.choosename);
+                          window.location = 'http://localhost:8080/#/Ipage';
+                        console.log(event,nodes)
+                        
                 },
                 choosestack(){
                     let _this=this;
@@ -272,12 +278,27 @@
                         .get('http://163.13.127.53:7153/'+_this.api)
                         .then(response => (this.info = response)) 
                         .then(function(respone){
-                        
-                        for(var i=0;i<10;i++)
-                        {
-                            // this.nodename[i].push(data[0].test);
-                            _this.nodes[i].name=respone.data.data[i].name;
+                        if(respone.data.data[0]!=null){
+                              for(var i=0;i<10;i++)
+                              {     
+                                    if(respone.data.data[i]!=null)
+                              // this.nodename[i].push(data[0].test);
+                                          _this.nodes[i].name=respone.data.data[i].name;
+                                          _this.nodes[i].security_code=respone.data.data[i].security_code;
+                                    // else  {
+                                    //        _this.nodes[i]._color='white';
+                                    //        _this.nodes[i]._size=0;
+
+                                    // }
+                                    
+                              
+                              }
+                              _this.showcard=true
                         }
+                        else{ 
+                              alert('請修改條件沒有在條件內的值');
+                              _this.showcard=false;
+                              }
                         })
                         .catch(function (error){
                         console.log(error);
@@ -289,8 +310,7 @@
             return {
                 api:'',
                 catenumber:'',
-                stock1:false,
-                stock2:false,
+                choosename:'',
                 
                 showcard:false,
                 single:false,
@@ -311,16 +331,16 @@
                ConditionValue2: '15',
                ConditionValue3: '4.5',
                  nodes: [
-                        { id: 1, name:'',_color:'#ff0000',_size:90},
-                        { id: 2, name:'',_color:'#e60a00',_size:80},
-                        { id: 3, name:'',_color:'#cc1400',_size:80},
-                        { id: 4, name:'',_color:'#b21f00',_size:70},
-                        { id: 5, name:'',_color:'#992900',_size:60},
-                        { id: 6, name:'',_color:'#803300',_size:50},
-                        { id: 7, name:'',_color:'#663d00',_size:40},
-                        { id: 8, name:'',_color:'#4c4700',_size:30},
-                        { id: 9, name:'',_color:'#335200',_size:20},  
-                        { id: 10, name:'',_color:'#1a5c00',_size:10},
+                        { id: 1, name:'',_color:'#000066',_size:85,security_code:''},
+                        { id: 2, name:'',_color:'#0f1a70',_size:80,security_code:''},
+                        { id: 3, name:'',_color:'#264080',_size:80,security_code:''},
+                        { id: 4, name:'',_color:'#3d668f',_size:70,security_code:''},
+                        { id: 5, name:'',_color:'#4c8099',_size:60,security_code:''},
+                        { id: 6, name:'',_color:'#548c9e',_size:50,security_code:''},
+                        { id: 7, name:'',_color:'#63a6a8',_size:40,security_code:''},
+                        { id: 8, name:'',_color:'#73bfb2',_size:30,security_code:''},
+                        { id: 9, name:'',_color:'#82d9bd',_size:20,security_code:''},  
+                        { id: 10, name:'',_color:'#99ffcc',_size:10,security_code:''},
                         
                         ],
                   links: [
@@ -330,10 +350,11 @@
                   { sid: 4, tid: 5 },
                   { sid: 5, tid: 6 },
                   { sid: 6, tid: 7 },
+                  { sid: 7, tid: 8 },
                   { sid: 8, tid: 9 },
                   { sid: 9, tid: 10 },
-               
-                 
+                  // { sid: 10, tid: 1 },
+       
                   ],
                   nodeSize:40,
                   canvas:false,
