@@ -14,7 +14,7 @@
 import axios from 'axios'
 import D3Network from 'vue-d3-network';
 import { mapState } from 'vuex';
-import getapi from './getapi.js'
+// import getapi from './getapi.js'
 var nodename=[{name:''
 }];
 

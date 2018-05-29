@@ -1,8 +1,6 @@
 import axios from 'axios'
 
-export default {
-    components: {
-    },
+export default function() {
     method:{
         getdata () {
             let _this=this;

@@ -8,10 +8,11 @@ import D3Network from 'vue-d3-network'
 import 'iview/dist/styles/iview.css';
 import Vuex from 'vuex'
 import axios from 'axios'
+import VCharts from 'v-charts'
 // import VueAxios from 'vue-axios'
 
 // import Vueresource from 'vue-resource'
-
+Vue.use(VCharts);
 Vue.use(iView);
 Vue.config.productionTip = false
 Vue.use(Vuex);
