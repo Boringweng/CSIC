@@ -9,7 +9,7 @@
       </AutoComplete>
       <Button type="primary" icon="ios-search" v-on:click="getdata">Search</Button>
    </h2>
-  <ve-candle :data="chartData" :settings="chartSettings"></ve-candle>
+  <ve-scatter :data="chartData"></ve-scatter>
 </div>
 </template>
 
@@ -21,20 +21,18 @@ import axios from 'axios'
        
        security_code:1101,
        chartData:{
-        columns: ['日期', 'open', 'close', 'lowest', 'highest', 'vol'],
-        rows:[
-          ['2018',12,22,33 ,66 ,77 ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-          ['', , , , , ],
-        ]
-       }
+          columns: ['date', 'cond', '下单用户', '年龄'],
+            rows: 
+               [
+                [  '1/1',  123,  3, 1244 ],
+                { '日期': '1/2', '访问用户': 1223, '年龄': 6, '下单用户': 2344 },
+                { '日期': '1/3', '访问用户': 7123, '年龄': 9, '下单用户': 3245 },
+                { '日期': '1/4', '访问用户': 4123, '年龄': 12, '下单用户': 4355 },
+                { '日期': '1/5', '访问用户': 3123, '年龄': 15, '下单用户': 4564 },
+                { '日期': '1/6', '访问用户': 2323, '年龄': 20, '下单用户': 6537 }
+              ],
+          
+        }
       }
     },
     methods:{

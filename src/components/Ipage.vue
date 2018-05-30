@@ -71,9 +71,9 @@
                                     <ve-candle :data="chartData" :settings="chartSettings"></ve-candle>                          
                                 </TabPane>       
                                 
-                                <TabPane label="基本資訊">标签二的内容</TabPane>
+                                <!-- <TabPane label="基本資訊">标签二的内容</TabPane>
                                 <TabPane label="歷年股利">标签二的内容</TabPane>
-                                <TabPane label="除權息資訊">标签二的内容</TabPane>
+                                <TabPane label="除權息資訊">标签二的内容</TabPane> -->
                                  
                             </Tabs>
                         </Row>
@@ -87,12 +87,12 @@
 </template>
 <script>
  import slider from './slider.vue';
- import Lpage from'./Lpage.vue';
+//   import APP from '../APP.vue';   
  import axios from 'axios'
     export default {
         components: {
                   'slider':slider,
-                  Lpage,        
+                          
                   },
        
         data () {
@@ -115,7 +115,7 @@
                     ]
                 },
                 isCollapsed: false,
-                security_code:1101,
+                security_code:'',
                 name:"",
                 data3: ['1101', '2498', '2330'],
                  columns1: [
@@ -180,8 +180,9 @@
         },
         methods:{
             setnumber() {
-             this.name ='大將';
-            this.date='2018/5/23';
+                let _this=this;
+            //  this.name ='大將';
+            // _this.name=APP.name;
              
             },
             getdata () {

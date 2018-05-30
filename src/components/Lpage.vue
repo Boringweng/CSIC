@@ -175,12 +175,12 @@
 <script>
     import axios from 'axios'
     import slider from './slider.vue';
-    import Ipage from './Ipage.vue';   
+
     import D3Network from 'vue-d3-network';
     export default {
                components: {
                   'slider':slider,
-                  D3Network,Ipage,
+                  D3Network,
                 },
             methods: {
                   show:function(event){
@@ -189,11 +189,15 @@
                         this.getdata();
                 },
                     nodeClick (event, nodes){
-                        //  this.$set(this.Ipage.security_code,security_code,nodes.security_code);
-                        //  this.$set(this.Ipage.name,security_code,nodes.name);
+
+                        //   console.log(this.Ipage.security_code)
+                        // // this.$set(this.Ipage.security_code,security_code,nodes.security_code);
+                        //  //this.$set(this.Ipage.name,security_code,nodes.name);
                         //   alert(_this.choosename);
-                          window.location = 'http://localhost:8080/#/Ipage';
-                        console.log(event,nodes)
+                        //   APP.name=nodes.name;
+                        // alert('股票代號是  '+nodes.security_code)
+                         // window.location = 'http://localhost:8080/#/Ipage';
+                        //console.log(APP.name)
                         
                 },
                 choosestack(){
@@ -261,14 +265,15 @@
                      else if (this.stock31==true)
                        _this.catenumber=31;
                     
-                    
+                    if(this.condition1==true)
+                        this.api='dp_ratio?bound='+this.ConditionValue1;
                     if(this.condition2==true)
                         this.api='pe_ratio?bound='+this.ConditionValue2;
                     if(this.condition3==true)
                         this.api='div_yield?bound='+this.ConditionValue3;
                     this.api=this.api+'&cate='+this.catenumber;
 
-                    alert(this.api)
+                    console.log(this.api)
                    
                 },
                 getdata() {
@@ -283,8 +288,8 @@
                               {     
                                     // if(respone.data.data[i]!=null)
                               // this.nodename[i].push(data[0].test);
-                                          _this.nodes[i].name=respone.data.data[i].name;
-                                          _this.nodes[i].security_code=respone.data.data[i].security_code;
+                                          _this.nodes[i].name=respone.data.data[i].name +" "+respone.data.data[i].security_code;
+                                          // _this.nodes[i].security_code=respone.data.data[i].security_code;
                                     // else  {
                                     //        _this.nodes[i]._color='white';
                                     //        _this.nodes[i]._size=0;
@@ -301,6 +306,7 @@
                               }
                         })
                         .catch(function (error){
+                       // alert(error);
                         console.log(error);
                         })
                   
