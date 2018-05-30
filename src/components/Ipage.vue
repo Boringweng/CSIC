@@ -112,6 +112,33 @@
                     ['', , , , , ],
                     ['', , , , , ],
                     ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
+                    ['', , , , , ],
                     ]
                 },
                 isCollapsed: false,
@@ -196,16 +223,16 @@
             .then(response => (this.info = response)) 
             .then(function(respone){
            
-              for(i=0;i<10;i++)
+              for(i=0;i<37;i++)
               {
                    
-                _this.chartData.rows[9-i][0]=respone.data.data[i].date;
+                _this.chartData.rows[36-i][0]=respone.data.data[i].date;
     
-                _this.chartData.rows[9-i][1]=respone.data.data[i].open_price;
-                _this.chartData.rows[9-i][2]=respone.data.data[i].close_price;
-                _this.chartData.rows[9-i][3]=respone.data.data[i].low_price;
-                _this.chartData.rows[9-i][4]=respone.data.data[i].high_price;
-                _this.chartData.rows[9-i][5]=respone.data.data[i].trade_volume;
+                _this.chartData.rows[36-i][1]=respone.data.data[i].open_price;
+                _this.chartData.rows[36-i][2]=respone.data.data[i].close_price;
+                _this.chartData.rows[36-i][3]=respone.data.data[i].low_price;
+                _this.chartData.rows[36-i][4]=respone.data.data[i].high_price;
+                _this.chartData.rows[36-i][5]=respone.data.data[i].trade_volume;
                             
               }
               _this.tabledata[0].date=respone.data.data[0].date;

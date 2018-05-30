@@ -196,7 +196,7 @@
                         //   alert(_this.choosename);
                         //   APP.name=nodes.name;
                         // alert('股票代號是  '+nodes.security_code)
-                         // window.location = 'http://localhost:8080/#/Ipage';
+                         window.location = 'http://localhost:8080/#/Ipage';
                         //console.log(APP.name)
                         
                 },
@@ -333,7 +333,7 @@
                condition1:false,
                condition2:false,
                condition3:false,
-               ConditionValue1: '85',
+               ConditionValue1: '75',
                ConditionValue2: '15',
                ConditionValue3: '4.5',
                  nodes: [

@@ -142,14 +142,14 @@
                            <h1> 搜尋條件</h1>
                           <!-- <Checkbox v-model="condition1">周轉率大於</Checkbox>
                           <Input v-model="ConditionValue1" placeholder="Enter something..." clearable style="width: 50px"></Input>% -->
-                          <Checkbox v-model="condition2">周波動率>月波動率</Checkbox>
-                          <Checkbox v-model="condition3">成交量增加</Checkbox>
+                          <Checkbox v-model="condition2">周波動率-月波動率</Checkbox>
+                          <Checkbox v-model="condition3">成交增加量</Checkbox>
                           <Input v-model="ConditionValue3" placeholder="Enter something..." clearable style="width: 50px"></Input>%
                           <Button type="primary" icon="ios-search" v-on:click="show">Search</Button>
                       </CheckboxGroup>
 
                     <Card v-if="showcard">
-                          <ve-pie :data="chartData"></ve-pie>
+                          <ve-bar :data="chartData" :settings="chartSettings"  :events="chartEvents"></ve-bar>
                     </Card>
                 </Content>
             </Layout>
@@ -164,6 +164,11 @@
                   'slider':slider,
                   },
             data () {
+                  this.chartEvents = {
+                              click: function (e) {
+                              window.location = 'http://localhost:8080/#/Ipage';
+                              }
+                        }
                         return {
                               // api:'',
                               // catenumber:'',
@@ -216,7 +221,8 @@
                                     { 'name': '', 'data': 0},
                               ]
                                     
-                              }
+                              },
+                        
                         }
                   },
             computed: { 
@@ -303,7 +309,7 @@
                   //   if(this.condition1==true)
                   //       this.api='dp_ratio?bound='+this.ConditionValue1;
                     if(this.condition2==true)
-                        this.api='wm_diff';
+                        this.api='wm_diff?cate='+this.catenumber;
                     if(this.condition3==true)
                           this.api='trade_vol_diff?bound='+this.ConditionValue3+'&cate='+this.catenumber;
                        
@@ -323,13 +329,15 @@
                         if(respone.data.data[0]!=null){
                              
                               for(var i=0;i<5;i++)
-                              {     
-                                   console.log(respone.data.data[i].wm_diff)
-                                    _this.chartData.rows[i].name=respone.data.data[i].name;
-                                    if(_this.condition2==true)
+                              {      _this.chartData.rows[i].data=0;
+                                     _this.chartData.rows[i].name='';
+                              //      console.log(respone.data.data[i].wm_diff)
+                                    _this.chartData.rows[i].name=respone.data.data[i].name+respone.data.data[i].security_code;
+                                   
+                                   if(_this.condition2==true)
                                           _this.chartData.rows[i].data=respone.data.data[i].wm_diff_pct;
                                     else if(_this.condition3==true)
-                                          _this.chartData.rows[i].data=respone.data.data[i].vol_diff_rate_pct;
+                                    _this.chartData.rows[i].data=respone.data.data[i].vol_diff_rate_pct;
                                     // else  {
                                     //        _this.nodes[i]._color='white';
                                     //        _this.nodes[i]._size=0;
@@ -349,7 +357,7 @@
                        // alert(error);
                         console.log(error);
                         })
-                  
+                        
                 }  
             },
       }
