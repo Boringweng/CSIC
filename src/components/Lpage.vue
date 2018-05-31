@@ -280,7 +280,7 @@
                     let _this=this;
                  
                     axios
-                        .get('http://163.13.127.53:7153/'+_this.api)
+                        .get('http://localhost:7153/'+_this.api)
                         .then(response => (this.info = response)) 
                         .then(function(respone){
                         if(respone.data.data[0]!=null){
