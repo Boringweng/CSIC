@@ -166,7 +166,7 @@
             data () {
                   this.chartEvents = {
                               click: function (e) {
-                              window.location = 'http://localhost:8080/#/Ipage';
+                              window.location = 'http://www.stockeagle.pw:8080/#/Ipage';
                               }
                         }
                         return {
