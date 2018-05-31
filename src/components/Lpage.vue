@@ -284,7 +284,8 @@
                         .then(response => (this.info = response)) 
                         .then(function(respone){
                         if(respone.data.data[0]!=null){
-                              for(var i=0;i<10;i++)
+                              var l =respone.data.data.length;
+                              for(var i=0;i<l;i++)
                               {     
                                     // if(respone.data.data[i]!=null)
                               // this.nodename[i].push(data[0].test);
@@ -337,16 +338,16 @@
                ConditionValue2: '15',
                ConditionValue3: '4.5',
                  nodes: [
-                        { id: 1, name:'',_color:'#000066',_size:85,security_code:''},
-                        { id: 2, name:'',_color:'#0f1a70',_size:80,security_code:''},
-                        { id: 3, name:'',_color:'#264080',_size:80,security_code:''},
-                        { id: 4, name:'',_color:'#3d668f',_size:70,security_code:''},
-                        { id: 5, name:'',_color:'#4c8099',_size:60,security_code:''},
-                        { id: 6, name:'',_color:'#548c9e',_size:50,security_code:''},
-                        { id: 7, name:'',_color:'#63a6a8',_size:40,security_code:''},
-                        { id: 8, name:'',_color:'#73bfb2',_size:30,security_code:''},
-                        { id: 9, name:'',_color:'#82d9bd',_size:20,security_code:''},  
-                        { id: 10, name:'',_color:'#99ffcc',_size:10,security_code:''},
+                        { id: 1, name:'無',_color:'#000066',_size:85,security_code:''},
+                        { id: 2, name:'無',_color:'#0f1a70',_size:80,security_code:''},
+                        { id: 3, name:'無',_color:'#264080',_size:80,security_code:''},
+                        { id: 4, name:'無',_color:'#3d668f',_size:70,security_code:''},
+                        { id: 5, name:'無',_color:'#4c8099',_size:60,security_code:''},
+                        { id: 6, name:'無',_color:'#548c9e',_size:50,security_code:''},
+                        { id: 7, name:'無',_color:'#63a6a8',_size:40,security_code:''},
+                        { id: 8, name:'無',_color:'#73bfb2',_size:30,security_code:''},
+                        { id: 9, name:'無',_color:'#82d9bd',_size:20,security_code:''},  
+                        { id: 10, name:'無',_color:'#99ffcc',_size:10,security_code:''},
                         
                         ],
                   links: [
