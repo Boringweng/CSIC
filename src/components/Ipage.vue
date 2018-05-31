@@ -219,7 +219,7 @@
          console.log('security_code:'+this.security_code);
          var lis = ['日期', 'open', 'close', 'lowest', 'highest', 'vol'];
           axios
-            .get('http://localhost:7153/'+api)
+            .get('127.0.0.1:7153/'+api)
             .then(response => (this.info = response)) 
             .then(function(respone){
            
