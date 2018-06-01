@@ -150,9 +150,9 @@
                           <h1> 搜尋條件</h1>
                           <Checkbox v-model="condition1">股利發放大於</Checkbox>
                           <Input v-model="ConditionValue1" placeholder="Enter something..." clearable style="width: 50px"></Input>%
-                          <Checkbox v-model="condition2">本益比大於</Checkbox>
+                          <Checkbox v-model="condition2">本益比小於</Checkbox>
                           <Input v-model="ConditionValue2" placeholder="Enter something..." clearable style="width: 50px"></Input>
-                          <Checkbox v-model="condition3">殖利率小於</Checkbox>
+                          <Checkbox v-model="condition3">殖利率大於</Checkbox>
                           <Input v-model="ConditionValue3" placeholder="Enter something..." clearable style="width: 50px"></Input>%
                         
                       </CheckboxGroup>
@@ -280,14 +280,17 @@
                     let _this=this;
                  
                     axios
-                        .get('http://localhost:7153/'+_this.api)
+                        .get('http://163.13.127.53:7153/'+_this.api)
                         .then(response => (this.info = response)) 
                         .then(function(respone){
+                              var l =respone.data.data.length;
+                              
                         if(respone.data.data[0]!=null){
-                              for(var i=0;i<10;i++)
+                              for(var i=0;i<l;i++)
                               {     
                                     // if(respone.data.data[i]!=null)
                               // this.nodename[i].push(data[0].test);
+                                          
                                           _this.nodes[i].name=respone.data.data[i].name +" "+respone.data.data[i].security_code;
                                           // _this.nodes[i].security_code=respone.data.data[i].security_code;
                                     // else  {
@@ -308,6 +311,8 @@
                         .catch(function (error){
                        // alert(error);
                         console.log(error);
+                        alert('請修改條件沒有在條件內的值');
+                              _this.showcard=false;
                         })
                   
                 }  
@@ -337,16 +342,16 @@
                ConditionValue2: '15',
                ConditionValue3: '4.5',
                  nodes: [
-                        { id: 1, name:'',_color:'#000066',_size:85,security_code:''},
-                        { id: 2, name:'',_color:'#0f1a70',_size:80,security_code:''},
-                        { id: 3, name:'',_color:'#264080',_size:80,security_code:''},
-                        { id: 4, name:'',_color:'#3d668f',_size:70,security_code:''},
-                        { id: 5, name:'',_color:'#4c8099',_size:60,security_code:''},
-                        { id: 6, name:'',_color:'#548c9e',_size:50,security_code:''},
-                        { id: 7, name:'',_color:'#63a6a8',_size:40,security_code:''},
-                        { id: 8, name:'',_color:'#73bfb2',_size:30,security_code:''},
-                        { id: 9, name:'',_color:'#82d9bd',_size:20,security_code:''},  
-                        { id: 10, name:'',_color:'#99ffcc',_size:10,security_code:''},
+                        { id: 1, name:'無',_color:'#000066',_size:85,security_code:''},
+                        { id: 2, name:'無',_color:'#0f1a70',_size:80,security_code:''},
+                        { id: 3, name:'無',_color:'#264080',_size:80,security_code:''},
+                        { id: 4, name:'無',_color:'#3d668f',_size:70,security_code:''},
+                        { id: 5, name:'無',_color:'#4c8099',_size:60,security_code:''},
+                        { id: 6, name:'無',_color:'#548c9e',_size:50,security_code:''},
+                        { id: 7, name:'無',_color:'#63a6a8',_size:40,security_code:''},
+                        { id: 8, name:'無',_color:'#73bfb2',_size:30,security_code:''},
+                        { id: 9, name:'無',_color:'#82d9bd',_size:20,security_code:''},  
+                        { id: 10, name:'無',_color:'#99ffcc',_size:10,security_code:''},
                         
                         ],
                   links: [

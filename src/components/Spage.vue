@@ -323,7 +323,7 @@
                     let _this=this;
                  
                     axios
-                        .get('http://localhost:7153/'+_this.api)
+                        .get('http://163.13.127.53:7153/'+_this.api)
                         .then(response => (this.info = response)) 
                         .then(function(respone){
                         if(respone.data.data[0]!=null){
@@ -355,7 +355,9 @@
                         })
                         .catch(function (error){
                        // alert(error);
-                        console.log(error);
+                        // console.log(error);
+                         alert('請修改條件沒有在條件內的值');
+                              _this.showcard=false;
                         })
                         
                 }  
